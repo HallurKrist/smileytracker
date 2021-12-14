@@ -10,41 +10,6 @@ export function MyDiagram({ options, setSelected }) {
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  
-
-//   useEffect(() => {
-//     setNodes([
-//       {
-//         cx: 100,
-//         starty: 20,
-//         block: 964069,
-//         txid: "53ca7176a3ed40228fa33a6129d3ded8d8bbf4ad9f88404de4ad8b649860e876",
-//         vin: 1,
-//         vout: [1, 2, 3],
-//       },
-//       {
-//         cx: 300,
-//         starty: 20,
-//         block: 964070,
-//         txid: "a33a6129d3ded8d8bbf4ad9f88404de4ad8b649860e876",
-//         vin: 2,
-//         vout: [1, 2, 3],
-//       },
-//     ]);
-
-//     let start = getStartPosByV(100, 20, null, 2);
-//     let end = getStartPosByV(300, 20, 2, null);
-
-//     setLinks([
-//       {
-//         startX: start.x,
-//         startY: start.y,
-//         endX: end.x,
-//         endY: end.y,
-//       },
-//     ]);
-//   }, []);
-
   useEffect(() => {
 	function addLink(link) {
 		for (let i = 0; i < links.length; i++) {
@@ -153,22 +118,21 @@ export function MyDiagram({ options, setSelected }) {
 
   return (
     <div className={s.diagram}>
-      <div className={s.buttons}>
-        {/* Took scaling out because I could not get it to work like I wanted */}
-        {/* <button className={s.button} onClick={downScale}>-</button>
-        <button className={s.button} onClick={upScale}>+</button> */}
-      </div>
-	  {loading &&
-	  	<p>loading</p>
-	  }
+		<div className={s.buttons}>
+			{/* Took scaling out because I could not get it to work like I wanted */}
+			{/* <button className={s.button} onClick={downScale}>-</button>
+			<button className={s.button} onClick={upScale}>+</button> */}
+		</div>
+		{loading &&
+			<p>loading</p>
+		}
 
-	<Canvas
-		nodes={nodes}
-		links={links}
-		scale={scale}
-		setSelected={setSelected}
-	/>
-
+		<Canvas
+			nodes={nodes}
+			links={links}
+			scale={scale}
+			setSelected={setSelected}
+		/>
     </div>
   );
 }
